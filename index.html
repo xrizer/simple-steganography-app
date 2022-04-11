@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Steganography</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      <h1 class="header">
+        Created by kelompok 4 (using bulma) :
+      </h1>
+      <div>
+      <ul style="list-style-type: disc;">
+        <li>Figo Alsistani (11190930000054)</li>
+        <li>Aqshol Afifi (11190930000057)</li>
+        <li>Paramita Citra Indah Mulia (11190930000069)</li>
+      </ul>
+    </div>
+      <br>
+      <br>
+      <h1 class="title">
+        Let's Encode!
+      </h1>
+      <p class="subtitle">
+        Enter a message to hide within the  <strong>image :</strong>
+      </p>
+
+      <div class="field">
+        <label class="label">Message</label>
+        <input class="input is-info" id="message" type="text" placeholder="Enter your secret message">
+      </div>
+      
+      <div id="file-js-example" class="file is-info has-name">
+        <label class="file-label">
+          <input class="file-input" type="file" id="imageLoader" name="imageLoader">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+          <span class="file-name">
+            No file uploaded
+          </span>
+        </label>
+        
+      </div>
+      <script>
+        const fileInput = document.querySelector('#file-js-example input[type=file]');
+        fileInput.onchange = () => {
+          if (fileInput.files.length > 0) {
+            const fileName = document.querySelector('#file-js-example .file-name');
+            fileName.textContent = fileInput.files[0].name;
+          }
+        }
+      </script>
+      <br>
+      
+      <canvas id="imageCanvas"></canvas>
+      <canvas id="textCanvas" style="display: none;"></canvas>
+      
+      <h1 class="title">
+        Try To Decode!
+      </h1>
+      <p class="subtitle">
+        Download encoded image and try to decode.
+      </p>
+
+      <div id="file-js-example2" class="file is-primary has-name">
+        <label class="file-label">
+          <input class="file-input" type="file" id="imageLoader2" name="imageLoader2">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+          <span class="file-name">
+            No file uploaded
+          </span>
+        </label>
+      </div>
+      <canvas id="imageCanvas2"></canvas>
+    
+      
+      <script>
+        const fileInp = document.querySelector('#file-js-example2 input[type=file]');
+        fileInp.onchange = () => {
+          if (fileInp.files.length > 0) {
+            const fileName = document.querySelector('#file-js-example2 .file-name');
+            fileName.textContent = fileInp.files[0].name;
+          }
+        }
+      </script>
+    </div>
+
+  </section>
+  <script src="app.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  
+  </body>
+</html>
